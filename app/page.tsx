@@ -80,12 +80,23 @@ export default async function PostIndex() {
 
   return (
     <div className="blog-index-container">
-      <h1>Latest Blog Posts</h1>
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-4xl font-extrabold">Latest Blog Posts</h1>
+        
+        {/* NEW CREATE POST BUTTON */}
+        <Link 
+          href="/admin/create-blog"
+          className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-150 ease-in-out flex items-center space-x-2"
+        >
+          <span>➕ Create New Post</span>
+        </Link>
+      </div>
       <div className="post-list-grid ">
         {blogs.map((blog) => (
-          <div key={blog._id} className="post-card bg-blue-500 shadow-lg shadow-blue-500/50">
+          <div key={blog._id} className="post-card mb-5 bg-blue-500 shadow-lg shadow-blue-500/50 skew-y-12 -skew-x-12">
+            {blog?.blogImage&&
             <img className="w-2xl" src={urlFor(blog?.blogImage)?.width(300)?.height(200)?.url()} alt={`${blog?.title} Image`}/>
-
+}
             <h2 className="post-title">
               {blog.slug?.current ? (
                 <Link href={`/${blog.slug.current}`}>{blog.title}</Link>

@@ -84,8 +84,8 @@ const BlogPage = async ({ params }:  Props) => {
   return (
     <div>
       <h1 >{title}</h1>
-       <div >
-            <img className="w-sm" src={urlFor(blogImage)?.width(300)?.height(200)?.url()} alt={`${blog?.title} Image`}/>
+       <div >{blogImage&&
+            <img className="w-sm" src={urlFor(blogImage)?.width(300)?.height(200)?.url()} alt={`${blog?.title} Image`}/>}
             <div className="post-content-preview">
               <PortableText value={portableText} />
             </div>
